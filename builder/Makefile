@@ -1,34 +1,32 @@
-CXX ?= c++
-CXXFLAGS ?= -std=c++17 -Wall -Wextra -Wpedantic
-CPPFLAGS ?=
-LDFLAGS ?=
-LDLIBS ?=
+NAME = burger
 
-SOURCES := src/Burger.cpp src/BurgerBuilder.cpp examples/main.cpp
-OBJECTS := $(SOURCES:%.cpp=build/%.o)
-DEPS := $(OBJECTS:.o=.d)
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -Iinclude
 
-.PHONY: all run clean fclean re
+SRCDIR = src
+SRC = main.cpp $(SRCDIR)/Burger.cpp $(SRCDIR)/BurgerBuilder.cpp
 
-all: burger
+OBJDIR = out
+OBJ = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
+DEP = $(OBJ:.o=.d)
 
-burger: $(OBJECTS)
-	$(CXX) $(LDFLAGS) $^ $(LDLIBS) -o $@
+all: $(NAME)
 
-run: burger
-	./burger
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-build/%.o: %.cpp
-	mkdir -p $(dir $@)
-	$(CXX) $(CPPFLAGS) -Iinclude $(CXXFLAGS) -MMD -MP -c $< -o $@
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
 
 clean:
-	$(RM) $(OBJECTS) $(DEPS)
+	rm -rf $(OBJDIR)
 
 fclean: clean
-	$(RM) burger
+	rm -f $(NAME)
 
-re: fclean
-	$(MAKE) all
+re: fclean all
 
--include $(DEPS)
+-include $(DEP)
+
+.PHONY: all clean fclean re
