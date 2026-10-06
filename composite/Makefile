@@ -1,10 +1,10 @@
-NAME = burger
+NAME = shopping_bag
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror
 
 SRCDIR = src
-SRC = main.cpp $(SRCDIR)/Burger.cpp $(SRCDIR)/BurgerBuilder.cpp
+SRC = main.cpp $(SRCDIR)/Book.cpp $(SRCDIR)/Electronics.cpp $(SRCDIR)/ShoppingBag.cpp
 
 OBJDIR = out
 OBJ = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))

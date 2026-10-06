@@ -1,5 +1,4 @@
-#ifndef BURGER_H
-#define BURGER_H
+#pragma once
 
 #include <string>
 
@@ -28,4 +27,3 @@ private:
     std::string sauce_;
 };
 
-#endif

@@ -1,4 +1,4 @@
-#include "Burger.h"
+#include "../include/Burger.hpp"
 
 const std::string& Burger::getBun() const noexcept { return bun_; }
 const std::string& Burger::getPatty() const noexcept { return patty_; }

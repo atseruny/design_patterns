@@ -1,7 +1,6 @@
-#ifndef BURGER_BUILDER_H
-#define BURGER_BUILDER_H
+#pragma once
 
-#include "Burger.h"
+#include "Burger.hpp"
 
 class BurgerBuilder {
 public:
@@ -20,5 +19,3 @@ private:
     // Keep construction state in one draft instead of duplicating product fields.
     Burger draft_;
 };
-
-#endif
