@@ -1,10 +1,10 @@
-NAME = burger
+NAME = builder
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror
 
 SRCDIR = src
-SRC = main.cpp $(SRCDIR)/Burger.cpp $(SRCDIR)/BurgerBuilder.cpp
+SRC = main.cpp $(SRCDIR)/Burger.cpp $(SRCDIR)/BurgerBuilder.cpp $(SRCDIR)/Chef.cpp
 
 OBJDIR = out
 OBJ = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))

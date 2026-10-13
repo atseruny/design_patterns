@@ -1,20 +1,13 @@
-#include "include/BurgerBuilder.hpp"
+#include "include/Chef.hpp"
 
 #include <iostream>
 
 int main()
 {
-	const Burger burger = BurgerBuilder()
-		.setBun("sesame")
-		.setPatty("beef")
-		.addCheese()
-		.addLettuce()
-		.addTomato()
-		.addOnion()
-		.setSauce("mustard")
-		.build();
-
+	Chef chef;
+	BurgerBuilder builder;
+	const Burger burger = chef.cook(builder);
 	std::cout << "Burger: " << burger.getBun() << " bun, " << burger.getPatty() << " patty, sauce: " << burger.getSauce() << '\n'
-			<< std::boolalpha << "Cheese: " << burger.hasCheese() << ", lettuce: " << burger.hasLettuce()
-			<< ", tomato: " << burger.hasTomato() << ", onion: " << burger.hasOnion() << '\n';
+			  << std::boolalpha << "Cheese: " << burger.hasCheese() << ", lettuce: " << burger.hasLettuce()
+			  << ", tomato: " << burger.hasTomato() << ", onion: " << burger.hasOnion() << '\n';
 }
