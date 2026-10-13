@@ -3,46 +3,39 @@
 #include <stdexcept>
 #include <utility>
 
-BurgerBuilder& BurgerBuilder::setBun(std::string bun)
+void BurgerBuilder::setBun(std::string bun)
 {
     draft_.bun_ = std::move(bun);
-    return *this;
 }
 
-BurgerBuilder& BurgerBuilder::setPatty(std::string patty)
+void BurgerBuilder::setPatty(std::string patty)
 {
     draft_.patty_ = std::move(patty);
-    return *this;
 }
 
-BurgerBuilder& BurgerBuilder::addCheese()
+void BurgerBuilder::addCheese()
 {
     draft_.cheese_ = true;
-    return *this;
 }
 
-BurgerBuilder& BurgerBuilder::addLettuce()
+void BurgerBuilder::addLettuce()
 {
     draft_.lettuce_ = true;
-    return *this;
 }
 
-BurgerBuilder& BurgerBuilder::addTomato()
+void BurgerBuilder::addTomato()
 {
     draft_.tomato_ = true;
-    return *this;
 }
 
-BurgerBuilder& BurgerBuilder::addOnion()
+void BurgerBuilder::addOnion()
 {
     draft_.onion_ = true;
-    return *this;
 }
 
-BurgerBuilder& BurgerBuilder::setSauce(std::string sauce)
+void BurgerBuilder::setSauce(std::string sauce)
 {
     draft_.sauce_ = std::move(sauce);
-    return *this;
 }
 
 Burger BurgerBuilder::build() const
